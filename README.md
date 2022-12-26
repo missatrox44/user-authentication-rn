@@ -8,3 +8,6 @@ React Native tutorial
 - Response w/ auth token
 - Auth token stored on device
 - Auth token identifies an authenticated user. It is sent along w/ future HTTP requests to protected resources.
+
+
+https://firebase.google.com/docs/reference/rest/auth

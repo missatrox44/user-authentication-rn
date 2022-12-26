@@ -1,5 +1,6 @@
 import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 
+//show loading message and spinner while http requests happen
 function LoadingOverlay({ message }) {
   return (
     <View style={styles.rootContainer}>

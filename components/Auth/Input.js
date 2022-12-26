@@ -15,6 +15,7 @@ function Input({
       <Text style={[styles.label, isInvalid && styles.labelInvalid]}>
         {label}
       </Text>
+      {/* //accepts multiple props for configuring custom inputs */}
       <TextInput
         style={[styles.input, isInvalid && styles.inputInvalid]}
         autoCapitalize={false}

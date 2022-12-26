@@ -7,8 +7,11 @@ import SignupScreen from './screens/SignupScreen';
 import WelcomeScreen from './screens/WelcomeScreen';
 import { Colors } from './constants/styles';
 
+//set up stack based navigation in app.js
 const Stack = createNativeStackNavigator();
 
+
+//navigation for unauthenticated users (create accounts or log in)
 function AuthStack() {
   return (
     <Stack.Navigator
@@ -24,6 +27,7 @@ function AuthStack() {
   );
 }
 
+//screen only accessible if authenticated (user logged in)
 function AuthenticatedStack() {
   return (
     <Stack.Navigator

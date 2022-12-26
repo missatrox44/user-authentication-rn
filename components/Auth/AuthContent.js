@@ -7,6 +7,7 @@ import { Colors } from '../../constants/styles';
 
 function AuthContent({ isLogin, onAuthenticate }) {
 
+  //credentials management - check what is typed in
   const [credentialsInvalid, setCredentialsInvalid] = useState({
     email: false,
     password: false,
@@ -46,6 +47,7 @@ function AuthContent({ isLogin, onAuthenticate }) {
     onAuthenticate({ email, password });
   }
 
+  //renders auth form and button to switch between login and signup screen
   return (
     <View style={styles.authContent}>
       <AuthForm

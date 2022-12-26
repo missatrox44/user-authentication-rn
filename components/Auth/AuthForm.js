@@ -4,6 +4,7 @@ import { StyleSheet, View } from 'react-native';
 import Button from '../ui/Button';
 import Input from './Input';
 
+//multiple state slices for handing inputs
 function AuthForm({ isLogin, onSubmit, credentialsInvalid }) {
   const [enteredEmail, setEnteredEmail] = useState('');
   const [enteredConfirmEmail, setEnteredConfirmEmail] = useState('');
@@ -43,6 +44,7 @@ function AuthForm({ isLogin, onSubmit, credentialsInvalid }) {
     });
   }
 
+  //custom inputs 
   return (
     <View style={styles.form}>
       <View>

@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 
+//welcome screen only available to view after user has logged in
 function WelcomeScreen() {
   return (
     <View style={styles.rootContainer}>

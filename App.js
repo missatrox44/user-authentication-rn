@@ -9,6 +9,7 @@ import WelcomeScreen from './screens/WelcomeScreen';
 import { Colors } from './constants/styles';
 import AuthContextProvider, { AuthContext } from './store/auth-context';
 
+import IconButton from './components/ui/IconButton';
 
 //set up stack based navigation in app.js
 const Stack = createNativeStackNavigator();
@@ -32,6 +33,9 @@ function AuthStack() {
 
 //screen only accessible if authenticated (user logged in)
 function AuthenticatedStack() {
+  //useContext to get access to logout function
+  const authCtx = useContext(AuthContext)
+
   return (
     <Stack.Navigator
       screenOptions={{
@@ -40,7 +44,20 @@ function AuthenticatedStack() {
         contentStyle: { backgroundColor: Colors.primary100 },
       }}
     >
-      <Stack.Screen name="Welcome" component={WelcomeScreen} />
+      <Stack.Screen
+        name="Welcome"
+        component={WelcomeScreen}
+        // logout icon
+        options={
+          {
+            headerRight: ({ tintColor }) =>
+              <IconButton
+                icon='exit'
+                color={tintColor}
+                size={24}
+                onPress={authCtx.logout} />
+          }
+        } />
     </Stack.Navigator>
   );
 }

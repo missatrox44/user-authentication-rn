@@ -3,7 +3,8 @@ import AuthContent from '../components/Auth/AuthContent';
 import { Alert } from 'react-native';
 import { createUser } from '../util/auth';
 
-import LoadingOverlay from '../components/ui/LoadingOverlay'
+import LoadingOverlay from '../components/ui/LoadingOverlay';
+import { AuthContext } from '../store/auth-context';
 
 function SignupScreen() {
   //manage loading state
@@ -15,13 +16,13 @@ function SignupScreen() {
   async function signupHandler({ email, password }) {
     setIsAuthenticating(true);
     try {
-     const token = await createUser(email, password);
+      const token = await createUser(email, password);
       //call auth function after successful login/sign up to get token from firebase
       authCtx.authenticate(token);
     } catch (error) {
-      Alert.alert('Authentication failed!', 'Could not create user. Please check your input and/or try again later!')
+      Alert.alert('Authentication failed!', 'Could not create user. Please check your input and/or try again later!');
+      setIsAuthenticating(false);
     }
-    setIsAuthenticating(false);
   }
 
   //return overlay while request is on the way

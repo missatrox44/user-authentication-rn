@@ -18,18 +18,21 @@ export async function authenticate(mode, email, password) {
 
   //tell if request sent successfully
   console.log(response.data);
+  const token = response.data.idToken;
+
+  return token;
 }
 
 //send request to firebase to create user
 //https://firebase.google.com/docs/reference/rest/auth#section-create-email-password
-export async function createUser(email, password) {
+export function createUser(email, password) {
   //mode spelled just like in docs
-  await authenticate('signUp', email, password)
+ return authenticate('signUp', email, password)
 }
 
 
-export async function login(email, password) {
-  await authenticate('signInWithPassword', email, password)
+export function login(email, password) {
+  return authenticate('signInWithPassword', email, password)
 }
 
 

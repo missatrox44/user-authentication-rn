@@ -1,4 +1,5 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 //set default value to help with autocompletion
 //base context object will hold token and boolean if signed in, two methods to check authentication and logout (erase token)
@@ -16,10 +17,13 @@ function AuthContextProvider({ children }) {
   //triggered when user logged in or sign up successfully
   function authenticate(token) {
     setAuthToken(token);
+    //key and item as string
+    AsyncStorage.setItem('token', token)
   }
 
   function logout() {
     setAuthToken(null);
+    AsyncStorage.removeItem('token');
   }
 
   //value object passed to all context users
